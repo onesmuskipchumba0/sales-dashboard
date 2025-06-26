@@ -5,7 +5,7 @@ function Navbar() {
     <nav
     className='flex pt-5 pb-4 shadow'>
         {/* Logo */}
-        <a href='/' className='font-bold ml-5 mr-auto'>Sales management</a>
+        <a href='/' className='font-bold ml-5 mr-auto text-green-400'>Sales management</a>
         <div className='mr-5 space-x-5'>
             <a href="/">Home</a>
             <a href="/sales">Sales</a>
