@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FaEdit, FaShare } from 'react-icons/fa';
 import { FaArrowDown, FaBurger } from 'react-icons/fa6';
 import { Sales } from '@/bin/data/SalesData';
+import SalesCard from '@/components/dashboard/SalesCard';
 
 export default function Dashboard() {
   const [activeBoard, setActiveBoard] = useState("Executive sales Dashboard");
@@ -11,7 +12,15 @@ export default function Dashboard() {
   Sales.forEach((element, index) => sales += element.sales);
 
   let previousSales = 700000;
-  let PercentageIncrease = ((sales - previousSales) / (previousSales + sales)) * 100 ;
+  let salesIncrease = ((sales - previousSales) / (previousSales + sales)) * 100 ;
+  let previousSalesIncrease = 14.4;
+  const salesGrowthRate = ((salesIncrease-previousSalesIncrease)/(previousSalesIncrease + salesIncrease));
+
+
+  //Recuring revenue
+  let reccuringRev = 560000;
+  let prevReccuringRev = 360000;
+  let revIncrease = ((reccuringRev - prevReccuringRev) / (prevReccuringRev + reccuringRev)) * 100;
 
 
   const links = [
@@ -68,25 +77,15 @@ export default function Dashboard() {
 
         {/* Analytics cards */}
 
-        <div className='flex'>
-          <div className='card card-body shadow-md max-w-1/4 py-5 bg-base-300'>
-            <label className='card-title'>Total Revenue</label>
-            <label className='text-3xl font-bold'>${(sales / 1000).toFixed(2)} k</label>
-            <div className='flex h-16'>
-              <div className='flex flex-col'>
-                <label className={`${PercentageIncrease > 0 ? "text-green-400" : "text-red-600"}`}>{PercentageIncrease.toFixed(2)}%</label>
-                <label>Versus</label>
-              </div>
-
-              <div className='divider-horizontal divider'></div>
-
-              <div className='flex flex-col'>
-                <label className='text-base'>$ {(previousSales / 1000).toFixed(2)} k</label>
-                <label>Previous year</label>
-              </div>
-            </div>
-          </div>
+        <div className='flex space-x-4'>
+          <SalesCard title={"Total sales"} current={sales} prev={previousSales} increase={salesIncrease} />
+          {/* Recurring revenue */}
+          <SalesCard title='Recurring sales revenue' current={reccuringRev} prev={prevReccuringRev} increase={revIncrease}/>
+          {/* Sales growth rate */}
+          <SalesCard title='Sales growth rate' current={salesGrowthRate} prev={previousSalesIncrease} increase={salesGrowthRate}/>
         </div>
+
+        
       </main>
     </div>
   )
