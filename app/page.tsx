@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="pt-5 pb-5 w-full mb-12 bg-base-100">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-12 bg-gradient-to-br from-green-100 to-white rounded-xl shadow mb-10 mx-4">
+      <section className="flex flex-col items-center justify-center text-center py-12 bg-gradient-to-br from-base-100 to-base rounded-xl shadow mb-10 mx-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-green-600 mb-4">
           Sales Management Software
         </h1>
@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="flex flex-col items-center justify-center bg-green-50 py-8 rounded-xl shadow mx-4 mb-12">
+      <section className="flex flex-col items-center justify-center bg-base-50 py-8 rounded-xl shadow mx-4 mb-12">
         <h2 className="text-2xl font-bold text-green-700 mb-2">
           Ready to boost your sales?
         </h2>
