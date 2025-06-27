@@ -86,7 +86,7 @@ export default function Dashboard() {
 
         {/* Analytics cards */}
 
-        <div className='flex space-x-4'>
+        <div className='flex space-x-4 px-3'>
           {/* Total sales */}
           <SalesCard title={"Total sales"} current={sales} prev={previousSales} increase={salesIncrease} />
 
