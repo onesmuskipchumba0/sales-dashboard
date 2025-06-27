@@ -13,7 +13,7 @@ export default function Dashboard() {
 
   let previousSales = 700000;
   let salesIncrease = ((sales - previousSales) / (previousSales + sales)) * 100 ;
-  let previousSalesIncrease = 14.4;
+  let previousSalesIncrease = 54.4;
   const salesGrowthRate = ((salesIncrease-previousSalesIncrease)/(previousSalesIncrease + salesIncrease));
 
 
@@ -21,6 +21,15 @@ export default function Dashboard() {
   let reccuringRev = 560000;
   let prevReccuringRev = 360000;
   let revIncrease = ((reccuringRev - prevReccuringRev) / (prevReccuringRev + reccuringRev)) * 100;
+
+  //Customer lifetime value
+  let averagePurchaseValue = 200000;
+  let purchaseFrequency = 4;
+  let customerLifespan = 4;
+  let CLV = (averagePurchaseValue) * (purchaseFrequency) * (customerLifespan)
+  let prevCLV = 2000000;
+  let CLVIncrease = ((CLV-prevCLV)/(CLV+prevCLV)) * 100;
+
 
 
   const links = [
@@ -78,11 +87,17 @@ export default function Dashboard() {
         {/* Analytics cards */}
 
         <div className='flex space-x-4'>
+          {/* Total sales */}
           <SalesCard title={"Total sales"} current={sales} prev={previousSales} increase={salesIncrease} />
+
           {/* Recurring revenue */}
           <SalesCard title='Recurring sales revenue' current={reccuringRev} prev={prevReccuringRev} increase={revIncrease}/>
+
           {/* Sales growth rate */}
           <SalesCard title='Sales growth rate' current={salesGrowthRate} prev={previousSalesIncrease} increase={salesGrowthRate}/>
+
+          {/* Customer lifetime value */}
+          <SalesCard title='Customer LIfetime Value' current={CLV} prev={prevCLV} increase={CLVIncrease}/>
         </div>
 
         
