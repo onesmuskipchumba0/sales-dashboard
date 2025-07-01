@@ -86,7 +86,7 @@ export default function Dashboard() {
 
         {/* Analytics cards */}
 
-        <div className='flex space-x-4 px-3'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-2 space-y-3 px-3'>
           {/* Total sales */}
           <SalesCard title={"Total sales"} current={sales} prev={previousSales} increase={salesIncrease} />
 
@@ -99,6 +99,14 @@ export default function Dashboard() {
           {/* Customer lifetime value */}
           <SalesCard title='Customer LIfetime Value' current={CLV} prev={prevCLV} increase={CLVIncrease}/>
         </div>
+
+        {/* Revenue Breakdown */}
+
+        <div className='flex items-center justify-between'>
+          <label className='font-bold'>Revenue Breakdown</label>
+          <div className='divider w-7/8'></div>
+        </div>
+        
 
         
       </main>
